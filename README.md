@@ -114,7 +114,10 @@ curl -fsSL https://raw.githubusercontent.com/iniwex5/vohive-release/master/insta
 ```
 curl -fsSL https://raw.githubusercontent.com/iniwex5/vohive-release/master/uninstall.sh | bash
 ```
-
+访问后台：
+```
+http://你的服务器IP:7575
+```
 
 #### 默认安装目录（便携部署）
 
@@ -130,58 +133,12 @@ curl -fsSL https://raw.githubusercontent.com/iniwex5/vohive-release/master/unins
 
 日志目录：/opt/vohive/logs
 
-## 五、部署方式二：Docker / Docker Compose
-1. 创建目录
-```
-mkdir -p vohive/{config,data,logs}
-cd vohive
-```
-2. 创建配置文件
-新建 config/config.yaml：
-```
-server:
-  port: 7575
-  debug: false
+#### 注意：高通410部署前还需要关闭开机自动拨号
 
-web:
-  username: admin
-  password: admin123
 ```
-3. 创建 docker-compose.yml
-```
-services:
-  vohive:
-    image: iniwex/vohive:latest
-    container_name: vohive
-    restart: unless-stopped
-    network_mode: host
-    privileged: true
-    volumes:
-      - ./config:/app/config
-      - ./data:/app/data
-      - ./logs:/app/logs
-    environment:
-      - TZ=Asia/Shanghai
-      - CONFIG_PATH=/app/config/config.yaml
-    devices:
-      - /dev:/dev
-```
-4. 启动
-```
-docker compose up -d
-```
-5. 访问后台
-```
-http://你的服务器IP:7575
+nmcli connection modify modem connection.autoconnect no
 ```
 
-#### 注意：
-
-
-Docker 部署也要先禁用宿主机 ModemManager
-
-
-这里用了 privileged、/dev 透传和 host network，这是因为程序需要直接接管模组设备
 
 ## 六、机器人常用命令
 
