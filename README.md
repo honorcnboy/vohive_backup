@@ -17,15 +17,21 @@ VoHive 是一个面向移远 4G 模组的管理平台，适合拿移远 EC20 这
 > EC20CEFAG
 > EC20CEFHLG
 可以小黄鱼几十块买到
+
+
 要求：
 
 > 设备具备 SIM 卡槽
 > 或搭配带SIM卡槽的USB底板
+
+
 系统：
 建议使用 Linux：
 > Debian / Ubuntu
 > 树莓派
 > NAS
+
+
 # 二、部署前先禁用宿主机 ModemManager
 这一步很重要。
 很多发行版会默认启动 ModemManager，它会抢占 /dev/ttyUSB* AT端口，导致模组识别、短信、AT 口访问异常。
@@ -52,6 +58,7 @@ systemctl status ModemManager
 ```
 sudo apt update
 sudo apt install -y socat
+```
 ```
 echo 'AT+QCFG="usbnet",0;+CFUN=1,1' | sudo socat - /dev/ttyUSB2,crnl
 ```
