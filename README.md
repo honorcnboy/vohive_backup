@@ -12,7 +12,7 @@ VoHive 是一个面向移远 4G 模组的管理平台，适合拿移远 EC20 这
 - 其他需要定期拨打一通电话做保号的海外号码
 
 # 一、适用环境
-硬件（推荐）：
+# 硬件（推荐）：
 > EC20CEFAG
 
 
@@ -22,7 +22,8 @@ VoHive 是一个面向移远 4G 模组的管理平台，适合拿移远 EC20 这
 可以小黄鱼几十块买到
 
 
-要求：
+
+# 要求：
 
 > 设备具备 SIM 卡槽
 
@@ -30,7 +31,8 @@ VoHive 是一个面向移远 4G 模组的管理平台，适合拿移远 EC20 这
 > 或搭配带SIM卡槽的USB底板
 
 
-系统：
+
+# 系统：
 
 
 建议使用 Linux：
@@ -68,7 +70,7 @@ systemctl status ModemManager
 ```
 
 
-注意：
+# 注意：
 
 
 即使你后面使用 Docker，这一步也必须在宿主机上做。
@@ -84,7 +86,7 @@ sudo apt install -y socat
 ```
 echo 'AT+QCFG="usbnet",0;+CFUN=1,1' | sudo socat - /dev/ttyUSB2,crnl
 ```
-说明：
+# 说明：
 
 
 AT+QCFG="usbnet",0：切到常见的 QMI 模式
@@ -96,9 +98,7 @@ AT+CFUN=1,1：重启模组
 /dev/ttyUSB2 只是示例，实际 AT 口请按你的设备调整
 
 
-# 四、部署方式一
-
-一键安装：
+# 四、部署方式一：一键安装
 ```
 curl -fsSL https://raw.githubusercontent.com/iniwex5/vohive-release/master/install.sh | bash
 ```
@@ -116,7 +116,7 @@ curl -fsSL https://raw.githubusercontent.com/iniwex5/vohive-release/master/unins
 ```
 
 
-默认安装目录（便携部署）
+# 默认安装目录（便携部署）
 
 
 二进制：/opt/vohive/bin/vohive
@@ -130,8 +130,7 @@ curl -fsSL https://raw.githubusercontent.com/iniwex5/vohive-release/master/unins
 
 日志目录：/opt/vohive/logs
 
-# 五、部署方式二：
-Docker / Docker Compose
+# 五、部署方式二：Docker / Docker Compose
 1. 创建目录
 ```
 mkdir -p vohive/{config,data,logs}
@@ -176,7 +175,7 @@ docker compose up -d
 http://你的服务器IP:7575
 ```
 
-注意：
+# 注意：
 
 
 Docker 部署也要先禁用宿主机 ModemManager
