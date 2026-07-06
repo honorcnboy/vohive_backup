@@ -140,7 +140,7 @@ nmcli connection modify modem connection.autoconnect no
 ```
 
 
-## 六、机器人常用命令
+## 五、机器人常用命令
 
 /list：查看设备列表
 
@@ -162,7 +162,7 @@ nmcli connection modify modem connection.autoconnect no
 
 /vocall 设备ID 号码：发起 VoWiFi 模拟呼叫
 
-## 七、补充说明
+## 六、补充说明
 
 
 VoWiFi 不是只要有网就一定能用，还取决于运营商、号码状态和网络环境要求
